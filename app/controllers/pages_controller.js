@@ -9,9 +9,12 @@ PagesController.main = function() {
 }
 
 PagesController.view = function() {
-  this.title = 'req.im - CMS for node.js'
-  this.content = getcontent(this.param('pageName'));
-  this.render();
+  this.title = 'req.im'
+  this.content = {
+  	pageName: this.param('pageName'),
+  	content: 'filler'
+  }
+  this.render(null, {pageName: 'her'});
 }
 
 function getcontent(pageName) {

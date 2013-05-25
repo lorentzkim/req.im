@@ -6,10 +6,10 @@
     "locomotive": "0.3.x",
     "express": "3.x.x",
     "connect-powered-by": "0.1.x",
-    "ejs": "0.8.x",
     "connect-redis": "1.4.x",
     "connect": ">= 1.x.x",
     "passport": ">= 0.1.x",
-    "passport-local": ">= 0.1.x"
+    "passport-local": ">= 0.1.x",
+    "jade": ">= 0.30.x"
   }
 }

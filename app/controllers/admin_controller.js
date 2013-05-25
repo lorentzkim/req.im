@@ -5,6 +5,8 @@ var locomotive = require('locomotive')
 var AdminController = new Controller();
 
 AdminController.show = function() {
+  this.title = 'req.im - Admin Management'
+
   if (!this.req.isAuthenticated())
     return this.res.redirect(this.urlFor({ action: 'login' }));
 
@@ -17,11 +19,17 @@ AdminController.new = function() {
 }
 
 AdminController.loginForm = function() {
+  if (this.req.isAuthenticated())
+    return this.res.redirect(this.urlFor({ action: 'show' }));
+
   this.title = 'req.im - Admin Login'
   this.render();
 }
 
 AdminController.login = function() {
+  if (this.req.isAuthenticated())
+    return this.res.redirect(this.urlFor({ action: 'show' }));
+
   passport.authenticate('local', {
     successRedirect: this.urlFor({ action: 'show' }),
     failureRedirect: this.urlFor({ action: 'login' }) }

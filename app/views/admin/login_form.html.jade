@@ -1,0 +1,15 @@
+extends ../layout.html.jade
+
+block content
+  h1 #{title}
+  form(action="/login", method="post")
+    fieldset
+      p
+        label Username
+        input(type="text", name="username")
+      p
+        label Password
+        input(type="password", name="password")
+      p
+        label
+        input(type="submit", value="Login")
