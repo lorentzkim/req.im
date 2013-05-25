@@ -1,0 +1,14 @@
+extends ../admin_layout.html.jade
+
+block content
+  h1 #{title}
+  p #{content.message}
+  if content.error
+    p Exact error: #{content.error}
+    p
+      a(href="/admin/layout/") Keep Editing
+  else
+    p
+      a(href="/admin/layout/") Keep Editing
+    p
+      a(href="/admin/") Back to Admin Home

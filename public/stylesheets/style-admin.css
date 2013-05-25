@@ -1,0 +1,38 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  width: 500px;
+  margin: 0 auto;
+  background-color: #EEEEEE;
+}
+
+div#container {
+  background-color: #FFFFFF;
+  padding: 50px;
+}
+
+div.clear {
+  clear: both;
+}
+
+a {
+  color: #00B7FF;
+}
+
+fieldset {
+  padding: 1em;
+}
+
+label {
+  float: left;
+  width: 25%;
+  margin-right: 0.5em;
+  padding-top: 0.2em;
+  text-align: right;
+  font-weight: bold;
+}
+
+textarea {
+  width: 250px;
+  height: 200px;
+}

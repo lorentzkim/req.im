@@ -14,10 +14,6 @@ AdminController.show = function() {
   this.render();
 };
 
-AdminController.new = function() {
-	this.render();
-}
-
 AdminController.loginForm = function() {
   if (this.req.isAuthenticated())
     return this.res.redirect(this.urlFor({ action: 'show' }));

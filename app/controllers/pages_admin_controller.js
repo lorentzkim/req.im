@@ -7,6 +7,9 @@ var locomotive = require('locomotive')
 var PagesAdminController = new Controller();
 
 PagesAdminController.admin = function() {
+  if (!this.req.isAuthenticated())
+    return this.res.redirect(this.urlFor({ controller: 'admin', action: 'login' }));
+
   var _this = this;
 
   this.title = 'Page Configuration';
@@ -24,6 +27,9 @@ PagesAdminController.admin = function() {
 }
 
 PagesAdminController.edit = function() {
+  if (!this.req.isAuthenticated())
+    return this.res.redirect(this.urlFor({ controller: 'admin', action: 'login' }));
+
   var _this = this;
 
   async.waterfall([
@@ -41,6 +47,9 @@ PagesAdminController.edit = function() {
 }
 
 PagesAdminController.editSubmit = function() {
+  if (!this.req.isAuthenticated())
+    return this.res.redirect(this.urlFor({ controller: 'admin', action: 'login' }));
+
   var _this = this;
   var errors = this._validateParams();
 
@@ -72,15 +81,20 @@ PagesAdminController.editSubmit = function() {
 }
 
 PagesAdminController.add = function() {
+  if (!this.req.isAuthenticated())
+    return this.res.redirect(this.urlFor({ controller: 'admin', action: 'login' }));
+
   this.title = 'Adding New Page';
   this.render();
 }
 
 
 PagesAdminController.addSubmit = function() {
+  if (!this.req.isAuthenticated())
+    return this.res.redirect(this.urlFor({ controller: 'admin', action: 'login' }));
+
   var _this = this;
   var errors = this._validateParams();
-
 
   if (errors) {
     this.res.send('There have been validation errors: ' + util.inspect(errors), 500);
@@ -120,6 +134,9 @@ PagesAdminController.addSubmit = function() {
 }
 
 PagesAdminController._validateParams = function(callback) {
+  if (!this.req.isAuthenticated())
+    return this.res.redirect(this.urlFor({ controller: 'admin', action: 'login' }));
+  
   this.req.assert('name', 'ID Name cannot be empty').notEmpty();
   this.req.assert('name', 'ID Name must be alphabetic string').isAlpha();
   this.req.assert('name', 'ID Name must be all lower case').isLowercase();

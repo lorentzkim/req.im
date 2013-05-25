@@ -15,6 +15,7 @@ module.exports = function() {
   // list of the available [settings](http://expressjs.com/api.html#app-settings).
   this.set('views', __dirname + '/../../app/views');
   this.set('view engine', 'jade');
+  this.set('stylesheet file', __dirname + '/../../public/stylesheets/style.css');
 
   // Register EJS as a template engine.
   this.engine('jade', require('jade').__express);

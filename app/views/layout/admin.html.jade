@@ -1,0 +1,12 @@
+extends ../admin_layout.html.jade
+
+block content
+  h1 #{title}
+  form(action="/admin/layout", method="post")
+    fieldset
+      p
+        label Stylesheet / CSS
+        textarea(name="stylesheet") !{content.css}
+      p
+        label
+        input(type="submit", value="Save")

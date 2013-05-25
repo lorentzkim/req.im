@@ -9,7 +9,8 @@ module.exports = function routes() {
   this.match('login', 'admin#login', { via: 'post' });
   this.match('logout', 'admin#logout');
 
-  this.match('admin/layout', 'layout#admin');
+  this.match('admin/layout', 'layout#admin', { via: 'get' });
+  this.match('admin/layout', 'layout#adminSubmit', { via: 'post' });
 
   this.match('admin/pages', 'pages_admin#admin');
   this.match('admin/pages/:pageName', 'pages_admin#edit', { via: 'get' } );
