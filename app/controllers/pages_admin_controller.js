@@ -78,7 +78,10 @@ PagesAdminController.editSubmit = function() {
     }
   ],function(err, results) {
     _this.title = 'Editing "' + _this.param('title') + '"';
-    _this.content = 'Successfully saved page!';
+    _this.content = {
+      message: 'Successfully saved page!',
+      pageName: _this.param('pageName')
+    };
     _this.render();
   });
 }
