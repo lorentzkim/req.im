@@ -1,7 +1,7 @@
 var passport = require('passport');
 
 module.exports = function routes() {
-  this.root('pages#main');
+  this.root('pages#view');
   this.match('pages/:pageName', 'pages#view');
 
   this.resource('admin');

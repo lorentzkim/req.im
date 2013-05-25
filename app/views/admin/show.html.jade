@@ -1,6 +1,12 @@
-extends ../layout.html.jade
+extends ../admin_layout.html.jade
 
 block content
   h1 #{title}
   p
     | Welcome to req.im Administration Page
+  p
+    a(href="/admin/layout") Site-wide Configuration
+  p
+    a(href="/admin/pages") Pages
+  p
+    a(href="/admin/users") Users
