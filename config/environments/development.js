@@ -3,12 +3,8 @@ var express = require('express');
 module.exports = function() {
   this.use(express.errorHandler());
 
-  // Redis connection details
-  this.set('redis', {
-  	'host': 'localhost',
-  	'db': 'reqim',
-  	'pass': 'reqim'
-  });
+  // SQLite
+  this.set('sqlite file', 'sqlite/db');
 
   // Redis session secret value (!)
   this.set('redis secret', 'keyboard cat');

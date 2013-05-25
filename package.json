@@ -10,6 +10,8 @@
     "connect": ">= 1.x.x",
     "passport": ">= 0.1.x",
     "passport-local": ">= 0.1.x",
-    "jade": ">= 0.30.x"
+    "jade": ">= 0.30.x",
+    "sqlite3": "= 2.1.7",
+    "async": ">= 0.2.x"
   }
 }
