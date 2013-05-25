@@ -39,7 +39,6 @@ PagesAdminController.edit = function() {
       });
     }
   ],function(err, results) {
-    console.log(results);
     _this.title = 'Editing "' + results.title + '"';
     _this.content = results;
     _this.render();
