@@ -4,10 +4,4 @@ var locomotive = require('locomotive')
 
 var LayoutController = new Controller();
 
-LayoutController.view = function() {
-  this.title = 'CMS for node.js';
-  this.content = 'filler';
-  this.render(null, {pageName: 'her'});
-}
-
 module.exports = LayoutController;
