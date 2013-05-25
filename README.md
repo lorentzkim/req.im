@@ -1,4 +1,15 @@
 req.im
 ======
 
-Node.js-based CMS
+Minimally small CMS built on nodejs
+
+---
+
+Features
+--------
+
+* sqlite backend
+* admin-only login
+* ediable/addable pages
+* edit stylesheet
+* plugins (coming soon)
