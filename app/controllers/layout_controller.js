@@ -7,8 +7,8 @@ var locomotive = require('locomotive')
 var LayoutController = new Controller();
 
 LayoutController.admin = function() {
-  //if (!this.req.isAuthenticated())
-    //return this.res.redirect(this.urlFor({ controller: 'admin', action: 'login' }));
+  if (!this.req.isAuthenticated())
+    return this.res.redirect(this.urlFor({ controller: 'admin', action: 'login' }));
 
   this.title = 'Layout / Template';
   this.content = {
