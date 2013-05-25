@@ -1,0 +1,16 @@
+extends ../admin_layout.html.jade
+
+block content
+  h1 #{title}
+  table(id="pagesTable")
+    thead
+      tr
+        th Name
+        th Title
+        th Path
+    tbody
+      each item in content
+        tr
+          td #{item.name}
+          td #{item.title}
+          td /pages/#{item.name}

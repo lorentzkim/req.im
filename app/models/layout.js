@@ -1,13 +1,19 @@
+var async = require('async');
+
 function Layout() {
   var db;
   this.name = 'pages';
 
   this.setDb = function(db) {
     this.db = db;
+    var _this = this;
 
-    if (this.createTable()) {
-      this.insertDefaultRecords();
-    }
+    if (this.createTable());
+    this.tableExists(function(result) {
+      if(!result) {
+        _this.insertDefaultRecords();
+      }
+    });
 
     return;
   }
@@ -18,6 +24,16 @@ function Layout() {
     this.db.get("SELECT * FROM " + this.name + " WHERE name = ?", [pageName], function(err, row) {
       if (typeof row == 'undefined') { callback(err); }
       callback(err, row);
+    });
+    return null;
+  };
+
+  this.getPages = function(callback) {
+    if (typeof pageName == 'undefined') { pageName = 'default'; }
+
+    this.db.all("SELECT * FROM " + this.name, function(err, rows) {
+      if (typeof rows == 'undefined') { callback(err); }
+      callback(err, rows);
     });
     return null;
   };
@@ -40,6 +56,13 @@ function Layout() {
     });
 
     return true;
+  }
+
+  this.tableExists = function(callback) {
+    this.db.get("SELECT id FROM " + this.name + " LIMIT 1", function(err, row) {
+      if (typeof row == 'undefined') { callback(false) }
+      callback(true);
+    });
   }
 
   this.insertDefaultRecords = function() {

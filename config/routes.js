@@ -9,5 +9,9 @@ module.exports = function routes() {
   this.match('login', 'admin#login', { via: 'post' });
   this.match('logout', 'admin#logout');
 
+  this.match('admin/layout', 'layout#admin');
+  this.match('admin/pages', 'pages_admin#admin');
+  this.match('admin/users', 'users#admin');
+
   this.match('notFound', 'pages#notFound');
 }

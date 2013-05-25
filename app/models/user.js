@@ -21,10 +21,14 @@ function User() {
   this.setDb = function(db) {
     this.db = db;
     var name = this.name;
+    var _this = this;
 
-    if (this.createTable()) {
-      this.insertDefaultRecords();
-    }
+    if (this.createTable());
+    this.tableExists(function(result) {
+      if(!result) {
+        _this.insertDefaultRecords();
+      }
+    });
 
     return;
   }
@@ -46,6 +50,13 @@ function User() {
     });
 
     return true;
+  }
+
+  this.tableExists = function(callback) {
+    this.db.get("SELECT id FROM " + this.name + " LIMIT 1", function(err, row) {
+      if (typeof row == 'undefined') { callback(false) }
+      callback(true);
+    });
   }
 
   this.insertDefaultRecords = function() {
