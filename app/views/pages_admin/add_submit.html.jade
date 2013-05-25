@@ -3,7 +3,12 @@ extends ../admin_layout.html.jade
 block content
   h1 #{title}
   p #{content.message}
-  p
-    a(href="/admin/pages/#{content.pageName}") Keep Editing
-  p
-    a(href="/admin/pages/") Back to Pages
+  if content.error
+    p Exact error: #{content.error}
+    p
+      a(href="/admin/pages/") Back to Pages
+  else
+    p
+      a(href="/admin/pages/#{content.pageName}") Keep Editing
+    p
+      a(href="/admin/pages/") Back to Pages

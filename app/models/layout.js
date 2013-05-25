@@ -66,7 +66,7 @@ function Layout() {
       "CREATE TABLE IF NOT EXISTS " + this.name + " \
       ( \
         id INTEGER PRIMARY KEY NOT NULL, \
-        name TEXT NOT NULL, \
+        name TEXT NOT NULL UNIQUE, \
         title TEXT NOT NULL, \
         content TEXT NOT NULL \
       )"
