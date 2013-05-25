@@ -4,7 +4,7 @@ var sqlite3 = require('sqlite3')
   , path    = require('path');
 
 module.exports = function() {
-  var sqlite = new sqlite3.Database(this.get('sqlite file'));
+  var db = new sqlite3.Database(this.get('sqlite file'));
 
   var registry  = require('../../app/model_registry');
 
@@ -13,12 +13,13 @@ module.exports = function() {
   async.forEachSeries(fs.readdirSync(modelsdir).sort(), function(file, next) {
     if (/\.js$/.test(file))
     {
-      var model = new require(modelsdir + file, { sqliteDb: this.sqlite });
-      registry.registerModel(model, sqlite);
-    }
-    else
+      var model = new require(modelsdir + file);
+      registry.registerModel(model, db);
       next();
+    }
+    else {
+      next();
+    }
   }, function() {
-    done();
   });
 }

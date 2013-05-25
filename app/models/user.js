@@ -2,30 +2,30 @@ function User() {
   var db;
   this.name = 'users';
 
-	this.authenticate = function(username, password, callback) {
-		this.db.get("SELECT * FROM users WHERE username = ? AND password = ?", [username, password], function(err, row) {
+  this.authenticate = function(username, password, callback) {
+    this.db.get("SELECT * FROM users WHERE username = ? AND password = ?", [username, password], function(err, row) {
       if (row == undefined) {
         callback(err);
       } else {
         callback(err, row);
       }
     });
-		return;
-	};
+    return;
+  };
 
-	this.findById = function(id, callback) {
-		this.db.get("SELECT * FROM users WHERE id = ?", [id], function(err, row) {
+  this.findById = function(id, callback) {
+    this.db.get("SELECT * FROM users WHERE id = ?", [id], function(err, row) {
       if (row == undefined) {
         callback(err);
       } else {
         callback(err, row);
       }
     });
-		return;
-	}
+    return;
+  }
 
-  this.setDb = function(sqliteDb) {
-    this.db = sqliteDb;
+  this.setDb = function(db) {
+    this.db = db;
     return;
   }
 }

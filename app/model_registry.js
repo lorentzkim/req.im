@@ -1,6 +1,6 @@
 module.exports = {
-  registerModel : function(model, sqliteDb) {
-    model.setDb(sqliteDb);
+  registerModel : function(model, db) {
     this[model.name] = model;
+    model.setDb(db);
   }
 };
