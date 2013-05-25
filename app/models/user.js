@@ -14,7 +14,13 @@ function User() {
 	};
 
 	this.findById = function(id, callback) {
-		callback(null, {id: 1, username: 'lorentz'});
+		this.db.get("SELECT * FROM users WHERE id = ?", [id], function(err, row) {
+      if (row == undefined) {
+        callback(err);
+      } else {
+        callback(err, row);
+      }
+    });
 		return;
 	}
 
