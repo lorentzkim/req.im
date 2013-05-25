@@ -16,11 +16,6 @@ AdminController.new = function() {
 	this.render();
 }
 
-AdminController.main = function() {
-  this.title = 'req.im - Admin'
-  this.render();
-}
-
 AdminController.loginForm = function() {
   this.title = 'req.im - Admin Login'
   this.render();
@@ -28,7 +23,7 @@ AdminController.loginForm = function() {
 
 AdminController.login = function() {
   passport.authenticate('local', {
-    successRedirect: this.urlFor({ controller: 'pages', action: 'main' }),
+    successRedirect: this.urlFor({ action: 'show' }),
     failureRedirect: this.urlFor({ action: 'login' }) }
   ) (this.__req, this.__res, this.__next);
 }

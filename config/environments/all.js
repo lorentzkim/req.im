@@ -41,6 +41,11 @@ module.exports = function() {
   this.use(express.static(__dirname + '/../../public'));
   this.use(express.bodyParser());
   this.use(express.methodOverride());
+  this.use(express.cookieParser("!"));
+  this.use(express.session({
+    //store: sessionStore,
+    cookie: { maxAge : 3600000 } //1 Hour
+    }));
 
   this.use(passport.initialize());
   this.use(passport.session());

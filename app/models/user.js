@@ -5,8 +5,8 @@ function User() {
 		return;
 	};
 
-	this.findById = function(id) {
-		callback(null, {id: 1, username: username});
+	this.findById = function(id, callback) {
+		callback(null, {id: 1, username: 'lorentz'});
 		return;
 	}
 }
