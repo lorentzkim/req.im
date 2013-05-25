@@ -39,13 +39,22 @@ function Layout() {
   };
 
   this.savePage = function(pageName, data, callback) {
-    if (typeof pageName == 'undefined') { pageName = 'default'; }
-
     var replace = { $name: data.name, $title: data.title, $content: data.content, $pageName: pageName };
 
     this.db.run("UPDATE " + this.name + " \
       SET name = $name, title = $title, content = $content \
       WHERE name = $pageName", replace, function(err) {
+        callback(err)
+      });
+  };
+
+  this.addPage = function(data, callback) {
+    var insert = { $name: data.name, $title: data.title, $content: data.content };
+
+    this.db.run("INSERT INTO " + this.name + " \
+      (name, title, content) \
+      VALUES \
+      ($name, $title, $content)", insert, function(err) {
         callback(err)
       });
   };

@@ -11,6 +11,10 @@ div#container {
   padding: 50px;
 }
 
+div.clear {
+  clear: both;
+}
+
 a {
   color: #00B7FF;
 }

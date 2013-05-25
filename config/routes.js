@@ -14,6 +14,8 @@ module.exports = function routes() {
   this.match('admin/pages', 'pages_admin#admin');
   this.match('admin/pages/:pageName', 'pages_admin#edit', { via: 'get' } );
   this.match('admin/pages/:pageName', 'pages_admin#editSubmit', { via: 'post' } );
+  this.match('admin/addpage', 'pages_admin#add', { via: 'get' } );
+  this.match('admin/addpage', 'pages_admin#addSubmit', { via: 'post' } );
 
   this.match('admin/users', 'users#admin');
 

@@ -2,7 +2,7 @@ extends ../admin_layout.html.jade
 
 block content
   h1 #{title}
-  form(action="/admin/pages/default", method="post")
+  form(action="/admin/pages/#{content.name}", method="post")
     fieldset
       p
         label ID Name
