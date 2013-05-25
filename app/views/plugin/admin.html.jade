@@ -1,0 +1,16 @@
+extends ../admin_layout.html.jade
+
+block content
+  h1 #{title}
+  table(id="pagesTable")
+    thead
+      tr
+        th Name
+        th Enabled
+    tbody
+      each item in content
+        tr
+          td
+            a(href="/admin/plugins/#{item.name}") #{item.name}
+          td
+            input(type="checkbox", checked=(item.enabled==1 ? "checked" : undefined), name="#{item.name}")

@@ -5,7 +5,4 @@ module.exports = function() {
 
   // SQLite
   this.set('sqlite file', 'sqlite/db');
-
-  // Redis session secret value (!)
-  this.set('redis secret', 'keyboard cat');
 }

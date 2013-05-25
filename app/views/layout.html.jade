@@ -3,7 +3,10 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
+    block head
   body
     div(id="container")
+      div(id="menu")
+        block menu
       img(src="/images/logo.png")
       block content
