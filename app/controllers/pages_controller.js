@@ -9,7 +9,8 @@ PagesController.view = function() {
   var _this = this;
   layoutModel.getPage(this.param('pageName'), function(err, row) {
     if (row == null) {
-      return _this.res.redirect(_this.urlFor({ action: 'notFound' }));
+      _this.res.send(404);
+      return;
     }
     _this.title = row.title;
     _this.content = row.content;
@@ -18,8 +19,7 @@ PagesController.view = function() {
 }
 
 PagesController.notFound = function() {
-  this.title = '404 - Page Not Found';
-  this.render();
+  this.res.send(404);
 }
 
 module.exports = PagesController;

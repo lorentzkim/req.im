@@ -34,4 +34,8 @@ module.exports = function() {
   this.use(passport.session());
 
   this.use(this.router);
+
+  this.use(function(req, res, next) {
+    res.send(404);
+  });
 }
