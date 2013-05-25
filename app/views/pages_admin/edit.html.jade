@@ -1,0 +1,18 @@
+extends ../admin_layout.html.jade
+
+block content
+  h1 #{title}
+  form(action="/admin/pages/default", method="post")
+    fieldset
+      p
+        label ID Name
+        input(type="text", name="name", value="#{content.name}")
+      p
+        label Title
+        input(type="text", name="title", value="#{content.title}")
+      p
+        label Content
+        textarea(name="content") #{content.content}
+      p
+        label
+        input(type="submit", value="Save")

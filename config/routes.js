@@ -10,7 +10,11 @@ module.exports = function routes() {
   this.match('logout', 'admin#logout');
 
   this.match('admin/layout', 'layout#admin');
+
   this.match('admin/pages', 'pages_admin#admin');
+  this.match('admin/pages/:pageName', 'pages_admin#edit', { via: 'get' } );
+  this.match('admin/pages/:pageName', 'pages_admin#editSubmit', { via: 'post' } );
+
   this.match('admin/users', 'users#admin');
 
   this.match('notFound', 'pages#notFound');

@@ -14,3 +14,21 @@ div#container {
 a {
   color: #00B7FF;
 }
+
+fieldset {
+  padding: 1em;
+}
+
+label {
+  float: left;
+  width: 25%;
+  margin-right: 0.5em;
+  padding-top: 0.2em;
+  text-align: right;
+  font-weight: bold;
+}
+
+textarea {
+  width: 250px;
+  height: 200px;
+}

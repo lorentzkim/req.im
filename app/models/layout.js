@@ -38,6 +38,18 @@ function Layout() {
     return null;
   };
 
+  this.savePage = function(pageName, data, callback) {
+    if (typeof pageName == 'undefined') { pageName = 'default'; }
+
+    var replace = { $name: data.name, $title: data.title, $content: data.content, $pageName: pageName };
+
+    this.db.run("UPDATE " + this.name + " \
+      SET name = $name, title = $title, content = $content \
+      WHERE name = $pageName", replace, function(err) {
+        callback(err)
+      });
+  };
+
   /**** PROTECTED(?) ****/
 
   this.createTable = function() {

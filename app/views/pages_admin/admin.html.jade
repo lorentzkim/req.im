@@ -11,6 +11,8 @@ block content
     tbody
       each item in content
         tr
-          td #{item.name}
+          td
+            a(href="/admin/pages/#{item.name}") #{item.name}
           td #{item.title}
-          td /pages/#{item.name}
+          td
+            a(href="/pages/#{item.name}", target="_blank") /pages/#{item.name}

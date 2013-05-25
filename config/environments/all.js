@@ -1,4 +1,5 @@
 var express = require('express')
+  , expressValidator = require('express-validator')
   , poweredBy = require('connect-powered-by')
   , util = require('util')
   , passport = require('passport');
@@ -23,6 +24,7 @@ module.exports = function() {
   this.use(express.favicon());
   this.use(express.static(__dirname + '/../../public'));
   this.use(express.bodyParser());
+  this.use(expressValidator);
   this.use(express.methodOverride());
   this.use(express.cookieParser("!"));
   this.use(express.session({

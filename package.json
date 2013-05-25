@@ -12,6 +12,8 @@
     "passport-local": ">= 0.1.x",
     "jade": ">= 0.30.x",
     "sqlite3": "= 2.1.7",
-    "async": ">= 0.2.x"
+    "async": ">= 0.2.x",
+    "node-validation": ">= 0.1.x",
+    "express-validator": ">= 0.3.x"
   }
 }
