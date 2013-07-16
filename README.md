@@ -13,3 +13,8 @@ Features
 * ediable/addable pages
 * edit stylesheet
 * plugins (coming soon)
+
+License
+-------
+
+BSD 2-clause
